@@ -72,21 +72,24 @@ export const deleteTodo = async (req, res) => {
 export const updateTodo = async (req, res) => {
   const { id } = req.params;
   const { isCompleted } = req.body;
+
   try {
-    const updatedNote = await TodoModel.findByIdAndUpdate(
-      { _id: id },
-      { isCompleted }
+    // Find the todo by _id and update the isCompleted field
+    const updatedNote = await TodoModel.findOneAndUpdate(
+      { _id: id }, // Match by the _id from params
+      { isCompleted }, // Update the isCompleted field
+      { new: true } // Return the updated document
     );
 
-    if (!updatedNote)
+    if (!updatedNote) {
       return res.status(404).json({ message: "No such Todo with this id" });
+    }
 
-    return res.status(204).json({});
+    // Return the updated note (todo)
+    return res.status(200).json(updatedNote);
   } catch (error) {
-    if (error.kind === "ObjectId")
-      return res
-        .status(404)
-        .json({ message: "id is not compatable with ObjectId format" });
+    console.error(error);
     return res.status(500).json({ message: "Internal server error" });
   }
 };
+
