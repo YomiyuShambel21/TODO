@@ -1,6 +1,6 @@
 import TodoModel from "../../../DB/models/Todo.model.js";
 
-export const getTodos = async (req, res) => {
+export const Todos = async (req, res) => {
   const { page = 1, limit = 3, title = "" } = req.query;
 
   try {

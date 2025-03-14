@@ -25,20 +25,46 @@ const AddTodoForm = ({ fetchTodos, page, limit }) => {
   let isValidateInputs =
     newTodo.title.length < 10 || newTodo.description.length < 15;
 
-  const handleSubmit = async (e) => {
+
+  /*const handleSubmit = async (e) => {
     try {
       e.preventDefault();
       const resp1 = await addTodo({ ...newTodo });
       console.log("newTodo display");
- 
-     // const resp = await axios.post("http://localhost:5000/api/todos", newTodo);
-     // console.log(resp);
+
+      const resp = axios.post("http://localhost:3000/api/todos", newTodo);
+      console.log(resp);
     }
     catch (ex) {
       console.log("catch me ", ex);
       // console.log(ex);
     }
   };
+*/
+
+const handleSubmit = async (e) => {
+  try {
+    e.preventDefault();
+    const resp = await axios.post("http://localhost:5000/api/todos", newTodo);
+    console.log("Task added successfully:", resp);
+
+    // Fetch the updated task list
+    fetchTodos(page, limit); // Ensure this line is present and working
+
+    // Reset the form fields
+    setNewTodo({
+      title: "",
+      description: "",
+      activity: "",
+      date: "",
+      strStatus: "",
+    });
+  } catch (ex) {
+    console.error("Error adding task:", ex);
+    alert("Failed to add task. Please try again.");
+  }
+};
+
 
   return (
     <Box

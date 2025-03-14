@@ -127,7 +127,7 @@ app.post('/api/todos', async (req, res) => {
   }
 });
 // Route: Fetch all users
-app.get('/api/gettodos', async (req, res) => {
+app.get('/api/todos', async (req, res) => {
 
   try {
 

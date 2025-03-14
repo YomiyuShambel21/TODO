@@ -1,16 +1,16 @@
-]0;mongosh mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000{
-  db: [32m'test'[39m,
-  collections: Long([32m'0'[39m),
-  views: Long([32m'0'[39m),
-  objects: Long([32m'0'[39m),
-  avgObjSize: [33m0[39m,
-  dataSize: [33m0[39m,
-  storageSize: [33m0[39m,
-  indexes: Long([32m'0'[39m),
-  indexSize: [33m0[39m,
-  totalSize: [33m0[39m,
-  scaleFactor: Long([32m'1'[39m),
-  fsUsedSize: [33m0[39m,
-  fsTotalSize: [33m0[39m,
-  ok: [33m1[39m
+{
+  db: 'test',
+  collections: Long('0'),
+  views: Long('0'),
+  objects: Long('0'),
+  avgObjSize: 0,
+  dataSize: 0,
+  storageSize: 0,
+  indexes: Long('0'),
+  indexSize: 0,
+  totalSize: 0,
+  scaleFactor: Long('1'),
+  fsUsedSize: 0,
+  fsTotalSize: 0,
+  ok: 1
 }

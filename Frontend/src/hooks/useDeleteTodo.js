@@ -7,7 +7,6 @@ const useDeleteTodo = (fetchTodos, page, limit) => {
 
   const deleteTodo = async (id) => {
     console.log("Attempting to delete ID:", id); // Debugging log
-    
     try {
       setIsLoading(true);
       const response = await fetch(
