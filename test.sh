@@ -15,7 +15,7 @@ else
 fi
 
 # Checking if MongoDB is running
-if docker exec -it f2f4a391416a mongosh --eval "show dbs" > /dev/null; then
+if docker-compose exec mongo mongosh --eval "show dbs" > /dev/null; then
   echo "MongoDB is running."
 else
   echo "MongoDB is not running."
